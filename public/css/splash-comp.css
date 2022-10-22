@@ -1,0 +1,87 @@
+/* Splash screen stylesheet */
+.start-up-screen {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+  opacity: 1;
+  animation: fade-away 50s linear 900s forwards;
+}
+
+@keyframes fade-away {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.splash-box{
+  animation: rotate-box linear 5s infinite,
+             fade-in-box 5s linear 5s forwards;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  font-size: 2rem;
+  border: 0.5px solid rgb(172, 172, 172);
+  position: absolute;
+}
+
+@keyframes fade-in-box {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.splash-text#splash_text-B,
+.splash-text#splash_text-Z{
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.splash-text#splash_text-B{
+  animation-name: slidein-textB;
+}
+
+@keyframes slidein-textB {
+  0%, 100% {
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  50% {
+    justify-content: flex-start;
+    border-radius: 50px;
+    width: 120px;
+    height: 40px;
+  }
+}
+
+.splash-text#splash_text-Z{
+  animation-name: slidein-textZ;
+  justify-content: flex-start !important;
+  padding-left: 10px;
+}
+
+@keyframes slidein-textZ {
+  0%, 100% {
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  50% {
+    justify-content: flex-start;
+    border-radius: 50px;
+    width: 40px;
+    height: 200px;
+  }
+}

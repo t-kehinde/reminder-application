@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alarm Clock</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://kit.fontawesome.com/a20e19a049.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="outer__container">
+        <div class="container">
+            <section class="current-time__container" id="curent">
+                <div class="current-time__text-container">
+                    <p class="current-time__text" id="current-time__date"></p>
+                    <p class="current-time__text" id="current-time__hr_min"></p>  
+                </div>
+            </section>
+
+            <div class="main-screen"> 
+                <div class="start-up-screen">
+                    <div class = "splash-text" id = "splash_text-B"> 
+                        <p>B</p> 
+                        </div>
+                    <div class = "splash-text" id = "splash_text-U"> 
+                        <p id="text_U">U</p>
+                        <!-- <i class="fa-solid fa-sync fa-spin"></i> -->
+                        <div class="splash-box"></div>
+                        </div>
+                    <div class = "splash-text" id = "splash_text-Z">
+                        <p>Z</p>
+                    </div>     
+                </div>
+
+                <div class = "app-home-screen">
+                    <div class = "home-text" id = "home_text-B"> 
+                        <p>B</p> 
+                        </div>
+                    <div class = "home home-text" id ="home_text-U"> 
+                        <!-- <i class="fa-solid fa-bell fa-shake"></i> -->
+                        <div class="home rotating-box"></div>
+                    </div>
+                    <div class = "home-text" id = "home_text-Z">
+                        <p>Z</p>
+                    </div>
+                    <hr>
+                </div>
+
+                <div class="inactive-mode countdown-none">
+                    <div class="inactive-mode animated-center">
+                        <div class = "inactive-mode-text" id = "inactive-mode-B"> 
+                            <p class = "inactive-mode_p-tag">B</p> 
+                            </div>
+                        <div class = "inactive-mode-text" id = "inactive-mode-mid">
+                            <p class ="inactive-mode_p-tag center-tag">U</p> 
+                            <div class="inactive-mode large-rotating-box"></div>    
+                        </div>
+                        <div class = "inactive-mode-text" id = "inactive-mode-Z">
+                            <p class ="inactive-mode_p-tag">Z</p>
+                        </div>
+                    </div>
+                    <div class="no-task__instruction-hidden">
+                        <i class="bi bi-info-circle"></i>
+                    </div>
+                    <div class = "inactive-message__container no-task__instruction-container">
+                        <p> YOU HAVE NO ACTIVE TASK</p>
+                    </div>
+                </div>
+
+                <section class="countdown__container">
+                    <div class = 'countdown-name'>
+                        <div class = "countdown-alarm-id" id = "countdown-alarm-todo"> </div>
+                        <div class = "countdown-alarm-id_next" id = "countdown-alarm-todo_next"> </div>
+                    </div>
+                    
+                    <button class = "countdown-id__side-popup hidden" id = "countdown-todo__btn">
+                        <span><i class="bi bi-list-task"></i></span>
+                    </button>
+                    <div class="timer__container">
+                        <div class="countdown-time" id="days">
+                            <p id ="countdown-time__days">3d</p> 
+                            <p id ="countdown-time__secs">30sec</p> 
+                        </div>
+                        <div class="countdown-time" id="hours">
+                            <h2 class = "center-time" id="hours__text"></h2>
+                            <small>hours</small> 
+                        </div>
+                        <div class="countdown-time" >
+                            <h2 class = 'countdown-time__separator'>:</h2>
+                        </div>
+                        <div class="countdown-time" id="mins">
+                            <h2 class = "center-time" id="minutes__text"></h2>
+                            <small>minutes</small> 
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="alarms" id = "alarm-cards"></section>
+            
+                <section class = "set-alarm__btn-container">
+                    <button class = "set-alarm__button" id = "set-alarm-button">
+                        (+) Reminder
+                    </button>
+                    <button class = "edit-alarm__button" id = "edit-alarm-button">
+                        Edit Reminder
+                    </button>
+                    <button class = "edit-alarm__exit-button" id = "cancel-edit-alarm-button">
+                        Cancel Edit
+                    </button>
+                </section>
+            </div>
+            
+            <!-- Alarm Settings -->
+            <section id="set-alarm-modal" class="set-alarm__modal">
+                <div class="alert danger" id = "form-validate__message">Please enter values of fields in red</div>
+                <div class="set-alarm__modal-content">
+                    <div class="set-alarm__modal-header">
+                        <p class="set-alarm__modal-header-text">Alarm Settings</p>
+                        <button class="set-alarm__modal-close" id = "alarm-modal-close">&times;</button>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Reminder date field  -->
+                        <div class=" modal-form__item date__form" id = "modal__alarm_date">
+                            <label class = "modal__labels" for="date-picker">Select date</label>
+                            <input type="date" id= "date-picker"placeholder="yyyy-mm-dd" onchange="updateFields" >
+                            <span class="validity"></span>
+                        </div>
+                        <!-- Reminder time field -->
+                        <div class="modal-form__item time__form" id = "modal__alarm_time">
+                            <label class = "modal__labels" for="time-picker">Select time</label>
+                            <input type="time" id= "time-picker" onchange="clearAllOptions">
+                            <span class="validity"></span>
+                        </div>
+                        <!-- Due date reminder -->
+                        <div class="modal-form__item reminder__form" id = "modal__reminder_time">
+                            <label class = "modal__labels" for="reminder-time">Display due soon in:</label>
+                            <select name="reminder-time" id="reminder-time__select">
+                                <optgroup id = "reminder-time__options">
+                                    <option disabled selected class = "select-option-disabled" value="">Select an option</option>
+                                </optgroup>
+                            </select>
+                            <!-- Error message for less than a day due date -->
+                            <div class = "modal__labels__validation_message">
+                                <i class="bi bi-info-circle-fill"></i>
+                                <small >Due date is in less than a day</small>
+                            </div>
+                        </div>
+                        <!-- Reminder item field -->
+                        <div class="modal-form__item form-group" id ="modal__alarm_task">
+                            <label class = "modal__labels"  for="modal-todo__task">Task</label>
+                            <input class="form-control modal__task" name="" id="modal-todo__task" />
+                        </div>
+                        <!-- Reminder notes field -->
+                        <div class="modal-form__item form-group" id ="modal__alarm_comments">
+                        <label class = "modal__labels" for="modal-todo__textarea">Notes</label>
+                        <textarea class="form-control modal__task-textarea" name="" id="modal-todo__textarea" rows="6" ></textarea>
+                        </div>
+                        <button class ="set-alarm__form-submit-btn" id ="set-alarm__form-submit-btn">Create</button>
+                        <button class ="set-alarm__form-submit-btn" id ="update-alarm__form-submit-btn">Update</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src = "app.js"></script>
+</body>
+</html>

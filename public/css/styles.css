@@ -1,0 +1,140 @@
+/* https://code.visualstudio.com/api/extension-guides/file-icon-theme */
+
+/* import font for splash screen */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
+
+/* Import styling sheets */
+@import url("./alert-comp.css");
+@import url("./inactive-comp.css");
+@import url("./splash-comp.css");
+@import url("./counter-comp.css");
+@import url("./home-comp.css");
+@import url("./form-comp.css");
+@import url("./reminders-comp.css");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #333;
+}
+
+.outer__container {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  width: 375px;
+  border-radius: 25px;
+  border: 2px solid rgba(179, 178, 178, 0.5);
+  height: 99vh;
+  position: relative;
+  background: rgba(109, 109, 109, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.3),
+    -2px -2px 1px rgba(126, 126, 126, 0.3);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-content: center;
+  overflow: hidden;
+  margin: auto;
+  width: 340px;
+  height: 96vh;
+  background-color: #f2f2f0;
+  font-family: "Helvetica Neue", sans-serif;
+  border-radius: 28px;
+  box-shadow: -2px -2px 2px 1px rgba(255, 255, 255, 0.1),
+    -2px -2px 2px 1px rgba(58, 33, 33, 0.1);
+}
+
+.main-screen {
+  margin: auto;
+  padding: 0;
+  width: 340px;
+}
+
+.splash-home-screen{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================================================== */
+
+/* shared with splash, home and inactive screens */
+.splash-text, 
+.home-text,
+.inactive-mode-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: #333;
+  color: #ffffff;
+  font-family: Syncopate;
+} 
+
+.splash-text#splash_text-U, 
+.home-text,
+.inactive-mode-text {
+  justify-content: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+} 
+
+/* shared: splash screen and inactive mode */
+@keyframes rotate-box {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.splash-text#splash_text-B,
+.inactive-mode-text#inactive-mode-B{
+  justify-content: flex-end !important;
+  padding-right: 10px;
+}
+
+/* Shared: splash screen abnd home screen */
+.splash-text#splash_text-B,
+.splash-text#splash_text-U,
+.home-text#home_text-B,
+.home-text#home_text-U,
+.inactive-mode-text#inactive-mode-B,
+.inactive-mode-text#inactive-mode-mid {
+  margin-right: 25px;
+}
+
+/* =============================================== */
+
+/* Current time top-left location */
+.current-time__container {
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  left: 0;
+  top: 0;
+  flex-direction: row;
+  align-content: center;
+  margin: 0.5rem 0;
+  padding: 1rem;
+}
+
+.current-time__text {
+  display: inline-block;
+  align-items: center;
+  font-size: 13px;
+  padding-bottom: 5px;
+}

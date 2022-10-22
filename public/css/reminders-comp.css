@@ -1,0 +1,343 @@
+
+/* ------------------ ALARMS -------------------- */
+
+.alarms {
+  margin: auto;
+  width: 330px;
+  bottom: 5rem;
+  overflow: hidden;
+}
+
+.alarm-date {
+  display: inline-block;
+  font-size: 0.8rem;
+}
+
+.alarm-upcoming-time {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  border: 1px solid #808080;
+  color: #333;
+}
+
+.alarm-set {
+  margin: 1rem;
+  border-radius: 12px;
+  position: relative;
+}
+
+.alarm__inner-container {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin-top: 1px;
+}
+
+#update-alarm__form-submit-btn {
+  display: none;
+    color: #2b2b2b;
+  margin: auto;
+  font-size: 14px;
+  border: 2px solid #333;
+  background: #f2f2f2;
+  padding: 0.4rem 2rem;
+}
+
+.task-display {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.alarm-set__container {
+  width: 85%;
+  padding: 0 1rem;
+  margin: 0.5rem 0;
+}
+
+.alarm-set__time_editor-group {
+  display: none;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.alarm-set__delete {
+  padding: 0.1rem;
+  font-size: 11px;
+  margin-left: 0;
+  border-radius: 3px;
+  background: #f4f4f4;
+}
+
+.alarm-set__modify {
+  padding: 0.1rem;
+  font-size: 11px;
+  background: #d8d9d7;
+  border-radius: 3px;
+  border: 1px solid #797979;
+  text-align: center;
+}
+
+.alarm-set__modify:hover,
+.alarm-set__delete:hover {
+  background: #202020;
+  color: #f4f4f4;
+}
+
+/* Toggle switches */
+
+.toggle-alarm__button-container {
+  margin-right: 0.2rem;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.toggle {
+  --width: 30px;
+  --height: calc(var(--width) / 1.6);
+  --border-radius: calc(var(--height) / 2);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle__input {
+  display: none;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: rgba(109, 109, 109, 0.2);
+  transition: background 0.5s;
+}
+
+.toggle__input:checked ~ .toggle__fill {
+  background: rgb(120, 120, 120);
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  border-radius: var(--border-radius);
+  background: rgb(255, 253, 253);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+  transition: transform 0.3s;
+}
+
+.disabled-alarm::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  border-radius: var(--border-radius);
+  background: rgba(222, 222, 222, 0.573);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.toggle__input:checked ~ .toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+.toggle__input:disabled {
+  background: rgba(204, 204, 204, 0.574);
+}
+
+.alarm-day__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 200px;
+}
+
+.alarm-day {
+  font-size: 11px;
+  margin-bottom: 0.5rem;
+  margin-right: 0.3rem;
+}
+
+.alarm-todo {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  margin: 0.2rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bi-card-text {
+  font-size: 10px;
+  margin: 0 0.2rem;
+}
+
+.alarm-set-time {
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
+}
+
+.set-alarm__btn-container {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1.2rem auto;
+}
+
+.set-alarm__button {
+  background: rgb(231, 231, 231);
+  border: 0.5px solid rgb(182, 182, 182);
+  font-size: 14px;
+  padding: 0.5rem 20px;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+.edit-alarm__button {
+  text-align: center;
+  background: rgb(95, 95, 95);
+  border: 2px solid rgb(51, 51, 51);
+  border-radius: 10px;
+  font-size: 14px;
+  color: #f4f4f4;
+  padding: 0.5rem 20px;
+}
+
+.countdown-time__separator {
+  font-size: 3rem;
+  animation: blinker 1s infinite;
+}
+
+@keyframes blinker {
+  90% {
+    opacity: 0;
+  }
+}
+
+
+.square {
+  height: 2px;
+  width: 15px;
+  background: rgb(114, 113, 113);
+  margin-right: 3px;
+  align-self: flex-start;
+}
+
+.square_2 {
+  animation: blink 2s alternate infinite;
+  animation-delay: 2s;
+}
+
+.square_3 {
+  animation: blink 2s alternate infinite;
+  animation-delay: 4s;
+}
+
+.square_4 {
+  animation: blink 2s alternate infinite;
+  animation-delay: 6s;
+}
+
+.active-alarm-blinker {
+  display: flex;
+  visibility: hidden;
+  margin: 0;
+  padding: 2px 10px;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.alarm-header-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alarm-set__time_editor-group {
+  width: 20%;
+  height: 8px;
+}
+
+.edit-alarm__exit-button {
+  display: none;
+
+  background: rgb(95, 95, 95);
+  border: 2px solid rgb(51, 51, 51);
+  font-size: 14px;
+  color: #f4f4f4;
+  padding: 0.5rem 20px;
+  border-radius: 10px;
+}
+
+.alarm_details-content {
+  margin: 0 1rem 1rem;
+  display: flex;
+  height: 350px;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 10px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.alarm-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  padding: 0.2rem 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.details-notes {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.alarm-details-close-btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0 5px;
+  border-radius: 50%;
+}
+
+.details-task {
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+.alarm-details__item {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.due-task {
+  padding: 2px 5px;
+  color: #db3636;
+  margin-left: 5px;
+  text-align: center;
+  border:2px solid #db3636;
+}

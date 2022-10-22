@@ -1,0 +1,11 @@
+{
+  "name": "reminder-app",
+  "version": "1.0.0",
+  "description": "A reminder alert app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "Timi Kehinde",
+  "license": "ISC"
+}

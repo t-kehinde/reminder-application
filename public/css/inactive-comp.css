@@ -1,0 +1,122 @@
+/* NO ACTIVE TASK */
+.inactive-mode.countdown-none{
+  display: none;
+  position: relative;
+  width: 80%;
+}
+
+/* Side panel instruction */
+.no-task__instruction-container {
+  visibility: hidden;
+  justify-content: flex-start;
+  padding: 5px;
+  transition: opacity 15s ease-in-out 2s;
+}
+
+.no-task__instruction-hidden {
+  position: absolute;
+  top: 168px;
+  left: -50px;
+  background: rgb(230, 230, 230);
+  width: 65px;
+  height: 25px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.2),
+    -2px -2px 2px rgba(255, 255, 255, 0.5);
+}
+
+.bi-info-circle {
+  color: #333;
+  position: relative;
+  left: 18px;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+
+/* Animation */
+.inactive-mode.animated-center {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.inactive-message__container{
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  line-height: 10px;
+  font-family: 'Ubuntu Mono', Courier, monospace;
+}
+
+.inactive-mode-text#inactive-mode-B,
+.inactive-mode-text#inactive-mode-mid{
+  animation: remove-margin 25s ease-in-out 5s infinite;
+}
+
+@keyframes remove-margin {
+  0%, 100% {
+    margin-right: 25px;
+  }
+  50%, 70% {
+    margin-right: -40px;
+  }
+}
+
+.inactive-mode-text#inactive-mode-mid:after{
+  content: "\f1f6";
+  opacity: 0;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  position: absolute;
+  animation: visible-fade 25s ease-in-out 5s infinite;
+}
+
+@keyframes visible-fade {
+  0%, 100% {
+    opacity: 0;
+  }
+  50%, 70%{
+    opacity: 1;
+  }
+}
+
+.inactive-mode_p-tag{
+  opacity: 1;
+  animation: fade-text 25s ease-in-out 5s infinite;
+}
+
+@keyframes fade-text {
+  0%,  100% {
+    opacity: 1;
+  }
+  50%, 70% {
+    opacity: 0;
+  }
+}
+  
+div.inactive-mode.large-rotating-box{
+  width: 60px;
+  height: 60px;
+  border: 0.5px solid rgb(172, 172, 172);
+  position: absolute;
+  animation: box-transform 25s ease-in-out 5s infinite,
+             rotate-box linear 5s infinite;
+}
+
+@keyframes box-transform {
+  0%,  100% {
+    border-radius: 0px;
+  }
+  50%, 70% {
+    border-radius: 50%;
+  }
+}

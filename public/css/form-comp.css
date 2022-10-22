@@ -1,0 +1,142 @@
+
+/* ------------------ MODAL -------------------- */
+
+.set-alarm__modal {
+  display: none;
+  width: 80%;
+  margin: 1rem auto 2rem auto;
+  overflow: auto;
+}
+
+.set-alarm__modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.set-alarm__modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.set-alarm__modal-close {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  color: #fff;
+}
+
+.set-alarm__modal-header-text {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.modal-form__item {
+  margin-bottom: 20px;
+}
+
+.modal__labels {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+.modal-btn__days {
+  background: #f2f2f2;
+  border: 1px solid rgb(97, 96, 96);
+  padding: 2px 4px;
+  margin-right: 2px;
+  font-size: 12px;
+  transition: all 0.5s;
+}
+
+.alert.danger {
+  position: absolute;
+  top: 70px;
+  left: 10%;
+  background-color: #ffb1b175;
+  color: #db3636;
+  font-size: 13px;
+  display: none;
+  width: 80%;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.modal-btn__days:hover {
+  background: #f4f4f4;
+  font-weight: bold;
+  transition: all 1s;
+}
+
+.modal-btn__days.active {
+  background: #333;
+  color: #fff;
+  font-weight: bold;
+}
+
+#date-picker,
+#time-picker,
+#reminder-time__select,
+#modal-todo__task,
+#modal-todo__textarea {
+  border-radius: 5px;
+  border: 2px solid #a6a6a6;
+  font-size: 15px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #404040;
+  background: #f2f2f2;
+  padding-left: 5px;
+}
+
+#modal-todo__task,
+#modal-todo__textarea {
+  width: 100%;
+}
+
+#date-picker,
+#time-picker,
+#reminder-time__select,
+#modal-todo__task {
+  height: 35px;
+}
+
+#modal-todo__textarea {
+  padding: 11px;
+  overflow: auto;
+}
+
+.l {
+  background-color: rgb(81, 85, 87);
+  color: #d8d9d7;
+  padding: 0 10px;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.set-alarm__form-submit-btn {
+  color: #2b2b2b;
+  margin: auto;
+  font-size: 14px;
+  border-radius: 10px;
+  padding: 0.4rem 2rem;
+  background: rgb(235, 235, 235);
+  border: 0.5px solid rgb(182, 182, 182);
+}
+
+
+.modal__labels__validation_message {
+  font-size: 11px;
+  color: #f50101bb;
+  display: none;
+}

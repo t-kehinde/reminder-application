@@ -1,0 +1,130 @@
+
+/* ---------- CENTER COUNTER---------------*/
+
+.countdown__container,
+.countdown-none {
+  margin: 0.5rem auto 0 auto;
+  z-index: 0;
+  height: 210px;
+}
+
+.countdown-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  visibility: hidden;
+  width: 55%;
+  height: 59px;
+  margin: 0 auto;
+}
+
+.countdown-alarm-id {
+  visibility: hidden;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: end;
+  margin: 0.2rem 0 0 0;
+  padding-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.countdown-alarm-id_next {
+  visibility: hidden;
+  font-size: 12px;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  text-align: end;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Side panel alarm information */
+.countdown-id__side-popup:hover span {
+  display: none;
+}
+
+.countdown-id__side-popup.visible:hover::before {
+  content: "Hide";
+  font-size: 0.8rem;
+}
+
+.countdown-id__side-popup.hidden:hover::before {
+  content: "Display";
+  font-size: 0.8rem;
+}
+
+.bi-list-task {
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.countdown-id__side-popup {
+  width: 40px;
+  height: 25px;
+  position: absolute;
+  right: -10px;
+  top: 11rem;
+  border: none;
+  background: #333;
+  color: #d8d9d7;
+  border-radius: 5px;
+  transform: rotate(-90deg);
+  transition: all 0.5s;
+  box-shadow: 7px 5px 3px rgba(222, 222, 222, 0.3),
+    -5px -5px 4px rgba(8, 8, 8, 0.2);
+}
+
+#countdown-alarm-todo {
+  visibility: hidden;
+}
+
+.countdown-id__side-popup:hover {
+  right: -25px;
+  width: 75px;
+}
+
+
+/* Center countdown */
+.timer__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 307px;
+  height: 70px;
+  margin: 1rem 0;
+}
+
+.countdown-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-time#days {
+  display: flex;
+  align-self: flex-start;
+  font-size: 13px;
+  padding-bottom: 0.5rem;
+}
+
+.countdown-time#seconds {
+  display: flex;
+  align-self: flex-end;
+  font-size: 12.5px;
+}
+
+.center-time {
+  margin: 0 0.5rem;
+  padding: 0;
+  font-size: 85px;
+}
+
+small {
+  font-size: 13px;
+  margin: 0;
+}

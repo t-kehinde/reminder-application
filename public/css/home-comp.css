@@ -1,0 +1,42 @@
+/* Stylesheet for home screen */
+
+.app-home-screen {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  position: absolute;
+  top: 330px;
+  left: 82px;
+}
+
+hr {
+  animation: shrink-line 15s linear infinite 4s;
+  border: none;
+  position: absolute;
+  width: 90%;
+  height: 0.3px;
+  z-index: 1;
+  background-color: rgba(51, 51, 51, 0.267);
+}
+
+@keyframes shrink-line {
+  0% {
+    width: 90%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.home.rotating-box {
+  animation: rotate-box linear 5s infinite;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  font-size: 2rem;
+  border: 1px solid #fff;
+  position: absolute;
+}
